@@ -10,13 +10,17 @@ int pos0 = 102;
 int pos180 = 512;
 int pos = 0;
 
+int botao1 = 0;
+int botao2 = 0;
+
+
 Adafruit_PWMServoDriver servos = Adafruit_PWMServoDriver(0x40);
 
 // Valores alvo dos servos
 int targetServo0 = 60;
 int targetServo1 = 50;
 int targetServo2 = 70;
-int targetServo3 = pos0;
+int targetServo3 = 0;
 
 // Constantes para suavização
 const float smoothingFactor = 0.3; // Fator de suavização (ajustável)
@@ -30,6 +34,10 @@ void setup() {
     pinMode(JoyStick_Y_1, INPUT);
     pinMode(JoyStick_X_2, INPUT);
     pinMode(JoyStick_Y_2, INPUT);
+
+    
+    pinMode(4, INPUT_PULLUP);
+    pinMode(5, INPUT_PULLUP);
     
     servos.begin();
     servos.setOscillatorFrequency(27000000);
@@ -54,6 +62,10 @@ void updateServos() {
     int rawX2 = analogRead(JoyStick_X_2);
     int rawY1 = analogRead(JoyStick_Y_1);
     int rawY2 = analogRead(JoyStick_Y_2);
+
+    botao1 = digitalRead(4);
+    botao2 = digitalRead(5);
+    
     
     smoothedX1 = (int)(smoothedX1 * (1.0 - smoothingFactor) + rawX1 * smoothingFactor);
     smoothedX2 = (int)(smoothedX2 * (1.0 - smoothingFactor) + rawX2 * smoothingFactor);
@@ -62,10 +74,12 @@ void updateServos() {
     
     // Mapeamento dos valores suavizados para ângulos dos servos
     int angleServo0 = map(smoothedY1, 0, 1023, 90, -90);
+    /// Deadzone
     if(angleServo0 <= 2 && angleServo0 >= -2){
       angleServo0 = 0;
     }
     int angleServo1 = map(smoothedX2, 0, 1023, -90, 90);
+    /// Deadzone
     if(angleServo1 <= 10 && angleServo1 >= -10){
       angleServo1 = 0;
     }
@@ -75,6 +89,7 @@ void updateServos() {
       angleServo2 = 0;
     }
     int angleServo3 = map(smoothedY2, 0, 1023, -90, 90);
+    /// Deadzone
     if(angleServo3 <= 2 && angleServo3 >= -2){
       angleServo3 = 0;
     }
@@ -82,6 +97,8 @@ void updateServos() {
     // Definir valores alvo dos servos com suavização
     targetServo0 = (int)(targetServo0 + angleServo0 * smoothingFactor);
 
+      Serial.print(" targetServo0  ");
+      Serial.println(targetServo0);
     /// Garante a condicao de limitacao
     if(targetServo0 <= 140 && targetServo0 >= 28){
       targetServo0 = (int)(targetServo0 + angleServo0 * smoothingFactor);
@@ -94,10 +111,8 @@ void updateServos() {
         } while (targetServo0 < 28);
     }
 
-    targetServo1 = (int)(targetServo1 + angleServo1 * smoothingFactor);
+    targetServo1 = (int)(targetServo1 + angleServo1 * 0,1);
 
-      Serial.print(" targetServo1  ");
-      Serial.println(targetServo1);
     /// Garante a condicao de limitacao
     if(targetServo1 <= 100 && targetServo1 >= 10){
       targetServo1 = (int)(targetServo1 + angleServo1 * smoothingFactor);
@@ -125,6 +140,7 @@ void updateServos() {
     }
     
     targetServo3 = (int)(targetServo3 + angleServo3 * smoothingFactor);
+    Serial.println(targetServo3);
 
     /// Garante a condicao de limitacao
     if(targetServo3 <= 100 && targetServo3 >= 10){
@@ -137,9 +153,11 @@ void updateServos() {
           ++targetServo3;
         } while (targetServo3 < 10);
     }
-    
+
+
+
     // Enviar valores alvo para os servos
-    servos.setPWM(0, 0, map(targetServo0, 0, 180, pos0, pos180));
+    servos.setPWM(0, 0, map(targetServo0, 0, 180, pos0, pos180)); 
     servos.setPWM(1, 0, map(targetServo1, 0, 180, pos0, pos180));
     servos.setPWM(2, 0, map(targetServo2, 0, 180, pos0, pos180));
     servos.setPWM(3, 0, map(targetServo3, 0, 180, pos0, pos180));
