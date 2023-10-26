@@ -24,6 +24,9 @@ Este código é destinado a controlar servos motorizados com base na entrada de 
    - Atualiza os valores alvo dos servos, suavizando-os e ajustando para limites.
    - Finalmente, envia os valores alvo para os servos usando a biblioteca Adafruit_PWMServoDriver.
 
+Observações:
+   As funções que garantem a função de limitação são relacionadas diretamente aos limites de cada motor, sendo limitados manualmente, protejendo dos limites da mesa principalmente durante a inicialização.
+
 7. Função "loop":
    - Chama a função "updateServos" para atualizar continuamente as posições dos servos.
    - Introduz um pequeno atraso para evitar atualizações muito frequentes.
