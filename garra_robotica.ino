@@ -11,7 +11,10 @@ int pos180 = 512;
 int pos = 0;
 
 int botao1 = 0;
+int valorbot1 = false; // false para garra fechada / true para garra aberta
+
 int botao2 = 0;
+int valorbot2 = false;
 
 
 Adafruit_PWMServoDriver servos = Adafruit_PWMServoDriver(0x40);
@@ -21,9 +24,10 @@ int targetServo0 = 60;
 int targetServo1 = 50;
 int targetServo2 = 70;
 int targetServo3 = 0;
+int targetServo4 = 0;
 
 // Constantes para suavização
-const float smoothingFactor = 0.3; // Fator de suavização (ajustável)
+const float smoothingFactor = 0.25; // Fator de suavização (ajustável)
 int smoothedX1 = 0;
 int smoothedX2 = 0;
 int smoothedY1 = 0;
@@ -72,6 +76,8 @@ void updateServos() {
     smoothedY1 = (int)(smoothedY1 * (1.0 - smoothingFactor) + rawY1 * smoothingFactor);
     smoothedY2 = (int)(smoothedY2 * (1.0 - smoothingFactor) + rawY2 * smoothingFactor);
     
+    //====================================================//====================================================
+
     // Mapeamento dos valores suavizados para ângulos dos servos
     int angleServo0 = map(smoothedY1, 0, 1023, 90, -90);
     /// Deadzone
@@ -93,12 +99,14 @@ void updateServos() {
     if(angleServo3 <= 2 && angleServo3 >= -2){
       angleServo3 = 0;
     }
+
+    //====================================================//====================================================
     
     // Definir valores alvo dos servos com suavização
     targetServo0 = (int)(targetServo0 + angleServo0 * smoothingFactor);
-
       Serial.print(" targetServo0  ");
       Serial.println(targetServo0);
+
     /// Garante a condicao de limitacao
     if(targetServo0 <= 140 && targetServo0 >= 28){
       targetServo0 = (int)(targetServo0 + angleServo0 * smoothingFactor);
@@ -140,22 +148,38 @@ void updateServos() {
     }
     
     targetServo3 = (int)(targetServo3 + angleServo3 * smoothingFactor);
-    Serial.println(targetServo3);
 
     /// Garante a condicao de limitacao
-    if(targetServo3 <= 100 && targetServo3 >= 10){
+    if(targetServo3 <= 75 && targetServo3 >= 10){
       targetServo3 = (int)(targetServo3 + angleServo3 * smoothingFactor);
     } else { 
         do{
           --targetServo3;
-        } while (targetServo3 > 100 );
+        } while (targetServo3 > 75 );
         do{
           ++targetServo3;
         } while (targetServo3 < 10);
     }
 
 
-
+  //=================== EM TESTES AINDA!!! O SWITC AINDA NÃO TEM COMANDOS ================================//====================================================
+ /*
+  Serial.println(botao1);
+  if(botao1 == LOW){ // aciona a garra, motor 4, Servo 4. // false para deixar garra fechada / true para deixar garra aberta
+  }
+  do{
+    servos.setPWM(4, 0, 100);
+    valorbot1 = true;
+  } while (valorbot1 == false);
+  
+  if(botao1 == LOW){ // aciona a garra, motor 4, Servo 4. // false para deixar garra fechada / true para deixar garra aberta
+  }
+  do{
+    servos.setPWM(4, 0, 0);
+    valorbot1 = false;
+  } while (valorbot1 == true);
+  */
+  //====================================================//====================================================
     // Enviar valores alvo para os servos
     servos.setPWM(0, 0, map(targetServo0, 0, 180, pos0, pos180)); 
     servos.setPWM(1, 0, map(targetServo1, 0, 180, pos0, pos180));
