@@ -1,3 +1,51 @@
+================================================================================================
+============================= EXPLICAÇÃO RELACIONADO AO CIRCUITO ========================
+================================================================================================
+**Configuração do circuito:**
+De forma mais objetiva, as conexões relacionadas aos dois módulos serão ditas separadamente. 
+
+![Imagem sobre lpaca PCA9685](https://github.com/Lucas-Cappra/Braco_robotic_lar_joystick/assets/108031562/fedc4245-7ee5-4acc-aebf-09f8122d877d)
+=== Módulo PCA9685 ===
+
+*Config do PCA:*
+1) Jumper laranja -> terminais (GND + OE) para o GND do Arduíno
+2) Jumper Cinza -> terminais SCL para A5 do Arduíno
+3) Jumper Branco -> terminais SDA para A4 do Arduíno
+4) Jumper Vermelhho -> terminais VCC para VCC do Arduíno
+
+![Imagem sobre Circuito](https://github.com/Lucas-Cappra/Braco_robotic_lar_joystick/assets/108031562/33964546-cdc7-4dae-9828-7732c26ba123)
+=== Circuito completo da placa ===
+
+
+*Config dos módulos:*
+1) Jumper Branco -> VCC para VCC do Arduino
+2) Jumper Cinza -> GND para GND do Arduino
+
+ *Módulo 2:*
+1) Jumper Amarelo -> VRx do módulo 2
+2) Jumper Verde -> VRy do módulo 2
+3) Jumper Verde afastado -> Switch do módulo 2
+
+ *Módulo 1:*
+1) Jumper Roxo -> VRx do módulo 1
+2) Jumper Azul -> VRy do módulo 1
+3) Jumper Cinza afastado -> Switch do módulo 1
+
+NOTA: Os GND1 e GND2 são juntos para conectarem juntos ao arduíno como um para GND. O mesmo para VCC1 e VCC2 para VCC
+
+![Imagem sobre Modolos analogicos](https://github.com/Lucas-Cappra/Braco_robotic_lar_joystick/assets/108031562/db9be6e3-368b-4ff6-968c-c23cb0e2d47f)
+Imagem sobre Modolos analogicos
+
+
+![Imagem atras do circuito modulos analogicos](https://github.com/Lucas-Cappra/Braco_robotic_lar_joystick/assets/108031562/fec68529-8251-44ad-b5ab-1071036ff41d)
+Imagem atras do circuito modulos analogicos
+
+/// Testar pinagem com https://www.aranacorp.com/en/using-a-pca9685-module-with-arduino/ ///
+
+================================================================================================
+============================= EXPLICAÇÃO RELACIONADO AO CÓDIGO ========================
+================================================================================================
+
 Este código é destinado a controlar servos motorizados com base na entrada de dois joysticks analógicos. Aqui está um resumo explicativo do código.
 
 1. Inclusão de bibliotecas:
