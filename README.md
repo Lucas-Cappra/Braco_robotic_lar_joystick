@@ -1,6 +1,7 @@
 ==========================================
 ==== EXPLICAÇÃO RELACIONADO AO CIRCUITO ====
 ==========================================
+
 **Configuração do circuito:**
 De forma mais objetiva, as conexões relacionadas aos dois módulos serão ditas separadamente. 
 
@@ -42,9 +43,9 @@ NOTA: Os GND1 e GND2 são juntos para conectarem juntos ao arduíno como um para
 
 /// Testar pinagem com https://www.aranacorp.com/en/using-a-pca9685-module-with-arduino/ ///
 
-================================================================================================
-============================= EXPLICAÇÃO RELACIONADO AO CÓDIGO ========================
-================================================================================================
+==========================================
+==== EXPLICAÇÃO RELACIONADO AO CÓDIGO ====
+==========================================
 
 Este código é destinado a controlar servos motorizados com base na entrada de dois joysticks analógicos. Aqui está um resumo explicativo do código.
 
