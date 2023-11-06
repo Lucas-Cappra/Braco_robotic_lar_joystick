@@ -23,14 +23,14 @@ De forma mais objetiva, as conexões relacionadas aos dois módulos serão ditas
 2) Jumper Cinza -> GND para GND do Arduino
 
  *Módulo 2:*
-1) Jumper Amarelo -> VRx do módulo 2
-2) Jumper Verde -> VRy do módulo 2
-3) Jumper Verde afastado -> Switch do módulo 2
+1) Jumper Amarelo -> VRx do módulo 2 para A0 do arduino
+2) Jumper Verde -> VRy do módulo 2 para A1 do arduino
+3) Jumper Verde afastado -> Switch do módulo 2 para porta digital do arduino
 
  *Módulo 1:*
-1) Jumper Roxo -> VRx do módulo 1
-2) Jumper Azul -> VRy do módulo 1
-3) Jumper Cinza afastado -> Switch do módulo 1
+1) Jumper Roxo -> VRx do módulo 1 para A2 do arduino
+2) Jumper Azul -> VRy do módulo 1 para A3 do arduino
+3) Jumper Cinza afastado -> Switch do módulo 1 para porta digital do arduino
 
 NOTA: Os GND1 e GND2 são juntos para conectarem juntos ao arduíno como um para GND. O mesmo para VCC1 e VCC2 para VCC
 
