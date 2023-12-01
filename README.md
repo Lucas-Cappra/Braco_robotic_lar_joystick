@@ -1,6 +1,6 @@
-==========================================
-==== EXPLICAÇÃO RELACIONADO AO CIRCUITO ====
-==========================================
+==============
+EXPLICAÇÃO RELACIONADO AO CIRCUITO
+==============
 
 **Configuração do circuito:**
 De forma mais objetiva, as conexões relacionadas aos dois módulos serão ditas separadamente. 
@@ -20,7 +20,7 @@ De forma mais objetiva, as conexões relacionadas aos dois módulos serão ditas
 
 *Config dos módulos:*
 1) Jumper Branco -> VCC para VCC do Arduino
-2) Jumper Cinza -> GND para GND do Arduino
+2) Jumper PRETO -> GND para GND do Arduino
 
  *Módulo 2:*
 1) Jumper Amarelo -> VRx do módulo 2 para A0 do arduino
