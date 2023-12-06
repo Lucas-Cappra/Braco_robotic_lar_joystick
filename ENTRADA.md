@@ -94,7 +94,7 @@ NOTA: Os GND1 e GND2 são juntos para conectarem juntos ao arduíno como um para
 /// Testar pinagem com https://www.aranacorp.com/en/using-a-pca9685-module-with-arduino/ ///
 
 ### 👩‍💻 Explicação Código - Software
- 
+ ```shell
 Este código é destinado a controlar servos motorizados com base na entrada de dois joysticks analógicos. Aqui está um resumo explicativo do código.
 
 1. Inclusão de bibliotecas:
@@ -124,7 +124,7 @@ Este código é destinado a controlar servos motorizados com base na entrada de 
 7. Função "loop":
    - Chama a função "updateServos" para atualizar continuamente as posições dos servos.
    - Introduz um pequeno atraso para evitar atualizações muito frequentes.
-
+```
 
 Observações:
    As funções que garantem a função de limitação são relacionadas diretamente aos limites de cada motor, sendo limitados manualmente, protejendo dos limites da mesa principalmente durante a inicialização.
