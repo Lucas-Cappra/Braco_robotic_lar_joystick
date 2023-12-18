@@ -1,7 +1,58 @@
-==============
-EXPLICAÇÃO RELACIONADO AO CIRCUITO
-==============
+# GARRA ROBÓTICA - URA 
 
+<div style="display: inline_block">
+
+![Imagem do WhatsApp de 2023-12-18 à(s) 18 07 07_7930b67a](https://github.com/Lucas-Cappra/Braco_robotic_lar_joystick/assets/108031562/34701c70-9d5a-472b-8997-5c99ea0c827d)
+
+## Índice
+ 
+ - [Título e Imagem de capa](#t%C3%ADtulo-projeto---ura)
+ - [Descrição do projeto](#-descrição-do-projeto)
+ - [Componentes Utilizados](#-componentes-utilizados)
+ - [Tecnologias Utilizadas](#%EF%B8%8F-tecnologias-utilizadas)
+ - [Como Fazer](#-como-fazer)
+   - [Circuito](#%EF%B8%8F-explica%C3%A7%C3%A3o-circuito---hardware)
+   - [Código](#-explica%C3%A7%C3%A3o-c%C3%B3digo---software)
+ - [Como Jogar](#-como-jogar)
+ - [Documentação do Projeto](#%EF%B8%8F-documenta%C3%A7%C3%A3o-do-projeto)
+ - [Referências](#-referências)
+</div>
+
+## 📄 Descrição do Projeto
+
+<p>  
+  Este é o repositório do projeto  do <b> Laboratório de Automação e Robótica - 2023.2</b> da <i>CeT</i> , o qual tem como objetivo o desenvolvimento de um projeto que envolva a <i>Robótica </i>.
+</p>
+
+<!-- Descrever o teclado musical como OA para crianças -->
+
+## 🧰 Componentes Utilizados
+
+| Quantidade | Componente | 
+| :---:       |     :---:       |  
+| 1     | Arduíno Uno R3      | 
+| 1     | Placa de circuito       |
+| 12    | Barra de pinos               |
+| 2     | Módulos de Joystick B103 348 ) |
+| 1     | Módulo PCA9685 |
+| 1     | Entrada de Fonte |
+| 1     | Fonte 5v |
+
+
+
+## 🛠️ Tecnologias Utilizadas
+
+<div align="center">
+ <img align="center" alt="Misla-Arduino" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/arduino/arduino-original.svg">
+ <img align="center" alt="Misla-C++" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg">
+ <img align="center" alt="Misla-Github" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg">
+ <img align="center" alt="Misla-Tinkercad" height="50" width="60" src="https://logowik.com/content/uploads/images/autodesk-tinkercad4190.logowik.com.webp">
+ <img align="center" alt="Misla-Canva" height="50" width="60" src="https://logosmarcas.net/wp-content/uploads/2020/01/Canva-Logo.png">
+</div>
+
+## 📝 Como Fazer
+<!-- Colocar slide da apresentação, o códido estará disponível e um pequeno manual de instruções -->
+### 🖥️ Explicação Circuito - Hardware
 **Configuração do circuito:**
 De forma mais objetiva, as conexões relacionadas aos dois módulos serão ditas separadamente. 
 
@@ -20,7 +71,7 @@ De forma mais objetiva, as conexões relacionadas aos dois módulos serão ditas
 
 *Config dos módulos:*
 1) Jumper Branco -> VCC para VCC do Arduino
-2) Jumper PRETO -> GND para GND do Arduino
+2) Jumper Cinza -> GND para GND do Arduino
 
  *Módulo 2:*
 1) Jumper Amarelo -> VRx do módulo 2 para A0 do arduino
@@ -43,10 +94,8 @@ NOTA: Os GND1 e GND2 são juntos para conectarem juntos ao arduíno como um para
 
 /// Testar pinagem com https://www.aranacorp.com/en/using-a-pca9685-module-with-arduino/ ///
 
-==========================================
-==== EXPLICAÇÃO RELACIONADO AO CÓDIGO ====
-==========================================
-
+### 👩‍💻 Explicação Código - Software
+ ```shell
 Este código é destinado a controlar servos motorizados com base na entrada de dois joysticks analógicos. Aqui está um resumo explicativo do código.
 
 1. Inclusão de bibliotecas:
@@ -76,9 +125,18 @@ Este código é destinado a controlar servos motorizados com base na entrada de 
 7. Função "loop":
    - Chama a função "updateServos" para atualizar continuamente as posições dos servos.
    - Introduz um pequeno atraso para evitar atualizações muito frequentes.
-
+```
 
 Observações:
    As funções que garantem a função de limitação são relacionadas diretamente aos limites de cada motor, sendo limitados manualmente, protejendo dos limites da mesa principalmente durante a inicialização.
 
 Em resumo, o código recebe leituras dos joysticks analógicos, suaviza essas leituras, mapeia-as para ângulos de servo e controla os servos de acordo com os valores alvo. Isso permite controlar a posição dos servos com os joysticks de forma suave e precisa.
+
+## 🎮 Como Jogar
+
+## 🗂️ Documentação do Projeto
+
+## 🧾 Referências
+
+*CAPPRA, Lucas. Desenvolvimento de Garra Robótica e seu uso na Manufatura, Educação e Inovação. 2023. Disponivel em:
+https://docs.google.com/document/d/1xfrEHQ_jieZLvy1EB5bGHEakLoLxhFD-/edit Data de acesso: 10 nov. 2023.
