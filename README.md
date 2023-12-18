@@ -135,7 +135,7 @@ Em resumo, o código recebe leituras dos joysticks analógicos, suaviza essas le
 ## 🎮 Como Jogar
 
 ## 🗂️ Documentação do Projeto
-
+https://docs.google.com/document/d/1xfrEHQ_jieZLvy1EB5bGHEakLoLxhFD-/edit?usp=sharing&ouid=105932636190851292454&rtpof=true&sd=true
 ## 🧾 Referências
 
 *CAPPRA, Lucas. Desenvolvimento de Garra Robótica e seu uso na Manufatura, Educação e Inovação. 2023. Disponivel em:
